@@ -1,0 +1,10 @@
+c:\users\offgolfer\documents\visual studio 2010\Projects\BlogTest\BlogTest\bin\BlogTest.dll
+c:\users\offgolfer\documents\visual studio 2010\Projects\BlogTest\BlogTest\bin\BlogTest.pdb
+c:\users\offgolfer\documents\visual studio 2010\Projects\BlogTest\BlogTest\obj\Debug\ResolveAssemblyReference.cache
+c:\users\offgolfer\documents\visual studio 2010\Projects\BlogTest\BlogTest\obj\Debug\BlogTest.dll
+c:\users\offgolfer\documents\visual studio 2010\Projects\BlogTest\BlogTest\obj\Debug\BlogTest.pdb
+Z:\Projekty Visual Studio\BlogTest\BlogTest\bin\BlogTest.dll
+Z:\Projekty Visual Studio\BlogTest\BlogTest\bin\BlogTest.pdb
+Z:\Projekty Visual Studio\BlogTest\BlogTest\obj\Debug\ResolveAssemblyReference.cache
+Z:\Projekty Visual Studio\BlogTest\BlogTest\obj\Debug\BlogTest.dll
+Z:\Projekty Visual Studio\BlogTest\BlogTest\obj\Debug\BlogTest.pdb

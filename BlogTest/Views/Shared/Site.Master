@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="all">
+        <%--<div id="top">
+            <div id="lefttop" style="background-image: url('/Content/images/blog_03.gif')">
+            </div>
+            <div id="centertop">
+                <div id="metop" style="background-image: url('/Content/images/blog_cięcie_02.gif')"></div>
+                <div id="bartop" 
+                    style="background-image: url('/Content/images/blog_03-03.gif');"></div>
+                <div id="bar2top"
+                    style="background-image: url('/Content/images/blog_cięcie_05.gif');"></div>
+                <div id="logintop"
+                    style="background-image: url('/Content/images/blog_cięcie_06.gif');"></div>
+                <div id="bar3top"
+                    style="background-image: url('/Content/images/blog_cięcie_07.gif');"></div>
+                <div id="texttop"
+                    style="background-image: url('/Content/images/blog_03-08.gif');"></div>
+                <div id="bar4top"
+                    style="background-image: url('/Content/images/blog_cięcie_09.gif');"></div>
+                <div id="hometop"
+                    style="background-image: url('/Content/images/blog_cięcie_10.gif');"></div>
+                <div id="bar5top"
+                    style="background-image: url('/Content/images/blog_cięcie_11.gif');"></div>
+                <div id="archivetop"
+                    style="background-image: url('/Content/images/blog_cięcie_12.gif');"></div>
+                <div id="bar6top"
+                    style="background-image: url('/Content/images/blog_cięcie_13.gif');"></div>
+                <div id="contacttop"
+                    style="background-image: url('/Content/images/blog_cięcie_14.gif');"></div>
+                <div id="bar7top"
+                    style="background-image: url('/Content/images/blog_cięcie_15.gif');"></div>
+                <div id="bar8top"
+                    style="background-image: url('/Content/images/blog_03-16.gif');"></div>
+            </div>
+            <div id="righttop" style="background-image: url('/Content/images/blog_04.gif')">
+            </div>
+        </div>--%>
+                            <!--<div id="logindisplay">
+                                <% Html.RenderPartial("LogOnUserControl"); %>
+                            </div> -->
+
+                        <div id="main">
+                            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                        </div>
+    </div>
+</body>
+</html>

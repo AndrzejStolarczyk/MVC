@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ProjektHostingGrafiki" Class="BazaDanychDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ANDREW-LAPTOP;Initial Catalog=ProjektHostingGrafiki;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ProjektHostingGrafikiConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Komentarze" Member="Komentarzes">
+    <Type Name="Komentarze">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_postu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="treść" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="autor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="data_dodania" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Post_Komentarze" Member="Post" ThisKey="id_postu" OtherKey="id" Type="Post" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ustawienia" Member="Ustawienias">
+    <Type Name="Ustawienia">
+      <Column Name="grupa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nazwa" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="wartość" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Post" Member="Posts">
+    <Type Name="Post">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tytuł" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="treść" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="data_dodania" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="data_modyfikacji" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Post_Komentarze" Member="Komentarzes" ThisKey="id" OtherKey="id_postu" Type="Komentarze" />
+      <Association Name="Post_Tagi" Member="Tagis" ThisKey="id" OtherKey="id_postu" Type="Tagi" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tagi" Member="Tagis">
+    <Type Name="Tagi">
+      <Column Name="id_postu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="keywords" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="[desc]" Member="desc" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Post_Tagi" Member="Post" ThisKey="id_postu" OtherKey="id" Type="Post" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
