@@ -26,11 +26,11 @@ namespace BlogTest.Controllers
         {
             if (db_admin.insert_post(p))
             {
-                ViewData["action"] = "dodano posta";
+                ViewData["AkcjaDodania"] = "Pomyślnie dodano posta.";
             }
             else
             {
-                ViewData["action"] = "nie dodane posta";
+                ViewData["AkcjaDodania"] = "Przy dodawaniu nowego posta wystąpił błąd!";
             }
             return View(p);
         }
@@ -47,12 +47,12 @@ namespace BlogTest.Controllers
             ViewData["post"] = post;
             if (db_admin.zapisz_zmiany(post))
             {
-                ViewData["alert"] = "zmiany ok";
+                ViewData["AkcjaEdycji"] = "Zmiany zostały pomyślnie zapisane.";
             }
 
             else 
             {
-                ViewData["alert"] = "zjebało się coś";
+                ViewData["AkcjaEdycji"] = "Wystąpił błąd przy zapisie zmian!";
             }
             return View();
         }

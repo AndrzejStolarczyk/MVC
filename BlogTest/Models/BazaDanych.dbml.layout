@@ -2,42 +2,42 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BazaDanych">
   <DataContextMoniker Name="/BazaDanychDataContext" />
   <nestedChildShapes>
-    <classShape Id="7d34c4a5-042c-44e1-b86f-0c2246a02bf8" absoluteBounds="3.5, 3.125, 2, 1.9631982421875005">
+    <classShape Id="be236e2b-1c18-4a03-9184-ea67eab0447b" absoluteBounds="3.5, 3.375, 2, 1.9631982421875005">
       <DataClassMoniker Name="/BazaDanychDataContext/Komentarze" />
       <nestedChildShapes>
-        <elementListCompartment Id="0d3f6ad2-149b-4deb-bf6d-97b29f028d76" absoluteBounds="3.515, 3.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="549acf10-6d53-400d-b689-c023975fe677" absoluteBounds="3.515, 3.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b472958b-e745-4c2e-81a9-49ae713bb252" absoluteBounds="6.75, 0.75, 2, 1.3862939453125003">
+    <classShape Id="b9862dc7-fed4-4f17-989b-d201d8c91852" absoluteBounds="6.75, 0.75, 2, 1.3862939453125003">
       <DataClassMoniker Name="/BazaDanychDataContext/Ustawienia" />
       <nestedChildShapes>
-        <elementListCompartment Id="0e47e098-1334-4432-a8d6-e0bb080e1e3a" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9581b564-04b5-406f-b43f-5c45077c5a8b" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="31fd4328-9f0f-4f2e-8c1b-02d58458d5a3" absoluteBounds="0.75, 2.125, 2, 1.9631982421874996">
+    <classShape Id="cd2be431-2d69-4166-b72f-12ebfe667175" absoluteBounds="0.75, 2.25, 2, 1.9631982421874996">
       <DataClassMoniker Name="/BazaDanychDataContext/Post" />
       <nestedChildShapes>
-        <elementListCompartment Id="5a5b2ac0-9a2d-42a6-b5a4-69162013d1d1" absoluteBounds="0.765, 2.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="38c29714-513f-4bbb-a2a3-ae6a3fb69034" absoluteBounds="0.765, 2.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="417c185f-15f0-406a-a244-a51d70c706a9" absoluteBounds="3.5, 1, 2, 1.3862939453125">
+    <classShape Id="271f5a22-39e0-43df-934e-37b459bbcf14" absoluteBounds="3.5, 1, 2, 1.5785953776041666">
       <DataClassMoniker Name="/BazaDanychDataContext/Tagi" />
       <nestedChildShapes>
-        <elementListCompartment Id="4f61b46a-e915-4bf2-aa25-1ef6b2af9ede" absoluteBounds="3.515, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="226173b5-69f3-4f05-8429-1378e13fa7e7" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 3.60659912109375); (3.5 : 3.60659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 3.79409912109375); (3.5 : 3.79409912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/BazaDanychDataContext/Post/Post_Komentarze" />
       <nodes>
-        <classShapeMoniker Id="31fd4328-9f0f-4f2e-8c1b-02d58458d5a3" />
-        <classShapeMoniker Id="7d34c4a5-042c-44e1-b86f-0c2246a02bf8" />
+        <classShapeMoniker Id="cd2be431-2d69-4166-b72f-12ebfe667175" />
+        <classShapeMoniker Id="be236e2b-1c18-4a03-9184-ea67eab0447b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 2.125); (1.75 : 1.5624995); (3.5 : 1.5624995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 2.25); (1.75 : 1.6249995); (3.5 : 1.6249995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/BazaDanychDataContext/Post/Post_Tagi" />
       <nodes>
-        <classShapeMoniker Id="31fd4328-9f0f-4f2e-8c1b-02d58458d5a3" />
-        <classShapeMoniker Id="417c185f-15f0-406a-a244-a51d70c706a9" />
+        <classShapeMoniker Id="cd2be431-2d69-4166-b72f-12ebfe667175" />
+        <classShapeMoniker Id="271f5a22-39e0-43df-934e-37b459bbcf14" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

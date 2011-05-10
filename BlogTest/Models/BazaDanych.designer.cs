@@ -30,9 +30,15 @@ namespace BlogTest.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertKomentarze(Komentarze instance);
+    partial void UpdateKomentarze(Komentarze instance);
+    partial void DeleteKomentarze(Komentarze instance);
     partial void InsertPost(Post instance);
     partial void UpdatePost(Post instance);
     partial void DeletePost(Post instance);
+    partial void InsertTagi(Tagi instance);
+    partial void UpdateTagi(Tagi instance);
+    partial void DeleteTagi(Tagi instance);
     #endregion
 		
 		public BazaDanychDataContext() : 
@@ -99,8 +105,10 @@ namespace BlogTest.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Komentarze")]
-	public partial class Komentarze
+	public partial class Komentarze : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id;
 		
@@ -114,11 +122,33 @@ namespace BlogTest.Models
 		
 		private int _status;
 		
+		private EntityRef<Post> _Post;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onid_postuChanging(int value);
+    partial void Onid_postuChanged();
+    partial void OntreśćChanging(string value);
+    partial void OntreśćChanged();
+    partial void OnautorChanging(string value);
+    partial void OnautorChanged();
+    partial void Ondata_dodaniaChanging(System.DateTime value);
+    partial void Ondata_dodaniaChanged();
+    partial void OnstatusChanging(int value);
+    partial void OnstatusChanged();
+    #endregion
+		
 		public Komentarze()
 		{
+			this._Post = default(EntityRef<Post>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id
 		{
 			get
@@ -129,7 +159,11 @@ namespace BlogTest.Models
 			{
 				if ((this._id != value))
 				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
 					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
@@ -145,7 +179,15 @@ namespace BlogTest.Models
 			{
 				if ((this._id_postu != value))
 				{
+					if (this._Post.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_postuChanging(value);
+					this.SendPropertyChanging();
 					this._id_postu = value;
+					this.SendPropertyChanged("id_postu");
+					this.Onid_postuChanged();
 				}
 			}
 		}
@@ -161,7 +203,11 @@ namespace BlogTest.Models
 			{
 				if ((this._treść != value))
 				{
+					this.OntreśćChanging(value);
+					this.SendPropertyChanging();
 					this._treść = value;
+					this.SendPropertyChanged("treść");
+					this.OntreśćChanged();
 				}
 			}
 		}
@@ -177,7 +223,11 @@ namespace BlogTest.Models
 			{
 				if ((this._autor != value))
 				{
+					this.OnautorChanging(value);
+					this.SendPropertyChanging();
 					this._autor = value;
+					this.SendPropertyChanged("autor");
+					this.OnautorChanged();
 				}
 			}
 		}
@@ -193,7 +243,11 @@ namespace BlogTest.Models
 			{
 				if ((this._data_dodania != value))
 				{
+					this.Ondata_dodaniaChanging(value);
+					this.SendPropertyChanging();
 					this._data_dodania = value;
+					this.SendPropertyChanged("data_dodania");
+					this.Ondata_dodaniaChanged();
 				}
 			}
 		}
@@ -209,8 +263,66 @@ namespace BlogTest.Models
 			{
 				if ((this._status != value))
 				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
 					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Post_Komentarze", Storage="_Post", ThisKey="id_postu", OtherKey="id", IsForeignKey=true)]
+		public Post Post
+		{
+			get
+			{
+				return this._Post.Entity;
+			}
+			set
+			{
+				Post previousValue = this._Post.Entity;
+				if (((previousValue != value) 
+							|| (this._Post.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Post.Entity = null;
+						previousValue.Komentarzes.Remove(this);
+					}
+					this._Post.Entity = value;
+					if ((value != null))
+					{
+						value.Komentarzes.Add(this);
+						this._id_postu = value.id;
+					}
+					else
+					{
+						this._id_postu = default(int);
+					}
+					this.SendPropertyChanged("Post");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -296,6 +408,10 @@ namespace BlogTest.Models
 		
 		private System.Nullable<System.DateTime> _data_modyfikacji;
 		
+		private EntitySet<Komentarze> _Komentarzes;
+		
+		private EntitySet<Tagi> _Tagis;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -316,6 +432,8 @@ namespace BlogTest.Models
 		
 		public Post()
 		{
+			this._Komentarzes = new EntitySet<Komentarze>(new Action<Komentarze>(this.attach_Komentarzes), new Action<Komentarze>(this.detach_Komentarzes));
+			this._Tagis = new EntitySet<Tagi>(new Action<Tagi>(this.attach_Tagis), new Action<Tagi>(this.detach_Tagis));
 			OnCreated();
 		}
 		
@@ -439,6 +557,32 @@ namespace BlogTest.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Post_Komentarze", Storage="_Komentarzes", ThisKey="id", OtherKey="id_postu")]
+		public EntitySet<Komentarze> Komentarzes
+		{
+			get
+			{
+				return this._Komentarzes;
+			}
+			set
+			{
+				this._Komentarzes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Post_Tagi", Storage="_Tagis", ThisKey="id", OtherKey="id_postu")]
+		public EntitySet<Tagi> Tagis
+		{
+			get
+			{
+				return this._Tagis;
+			}
+			set
+			{
+				this._Tagis.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -458,11 +602,39 @@ namespace BlogTest.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_Komentarzes(Komentarze entity)
+		{
+			this.SendPropertyChanging();
+			entity.Post = this;
+		}
+		
+		private void detach_Komentarzes(Komentarze entity)
+		{
+			this.SendPropertyChanging();
+			entity.Post = null;
+		}
+		
+		private void attach_Tagis(Tagi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Post = this;
+		}
+		
+		private void detach_Tagis(Tagi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Post = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tagi")]
-	public partial class Tagi
+	public partial class Tagi : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
 		
 		private int _id_postu;
 		
@@ -470,8 +642,46 @@ namespace BlogTest.Models
 		
 		private string _desc;
 		
+		private EntityRef<Post> _Post;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onid_postuChanging(int value);
+    partial void Onid_postuChanged();
+    partial void OnkeywordsChanging(string value);
+    partial void OnkeywordsChanged();
+    partial void OndescChanging(string value);
+    partial void OndescChanged();
+    #endregion
+		
 		public Tagi()
 		{
+			this._Post = default(EntityRef<Post>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_postu", DbType="Int NOT NULL")]
@@ -485,7 +695,15 @@ namespace BlogTest.Models
 			{
 				if ((this._id_postu != value))
 				{
+					if (this._Post.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_postuChanging(value);
+					this.SendPropertyChanging();
 					this._id_postu = value;
+					this.SendPropertyChanged("id_postu");
+					this.Onid_postuChanged();
 				}
 			}
 		}
@@ -501,7 +719,11 @@ namespace BlogTest.Models
 			{
 				if ((this._keywords != value))
 				{
+					this.OnkeywordsChanging(value);
+					this.SendPropertyChanging();
 					this._keywords = value;
+					this.SendPropertyChanged("keywords");
+					this.OnkeywordsChanged();
 				}
 			}
 		}
@@ -517,8 +739,66 @@ namespace BlogTest.Models
 			{
 				if ((this._desc != value))
 				{
+					this.OndescChanging(value);
+					this.SendPropertyChanging();
 					this._desc = value;
+					this.SendPropertyChanged("desc");
+					this.OndescChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Post_Tagi", Storage="_Post", ThisKey="id_postu", OtherKey="id", IsForeignKey=true)]
+		public Post Post
+		{
+			get
+			{
+				return this._Post.Entity;
+			}
+			set
+			{
+				Post previousValue = this._Post.Entity;
+				if (((previousValue != value) 
+							|| (this._Post.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Post.Entity = null;
+						previousValue.Tagis.Remove(this);
+					}
+					this._Post.Entity = value;
+					if ((value != null))
+					{
+						value.Tagis.Add(this);
+						this._id_postu = value.id;
+					}
+					else
+					{
+						this._id_postu = default(int);
+					}
+					this.SendPropertyChanged("Post");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

@@ -12,15 +12,13 @@
         <%: Html.ValidationSummary(true) %>
         
         <fieldset>
-            <legend>Fields</legend>
-            
-            
+            <legend>Edycja posta  o ID = <%=post.id %></legend>
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.tytuł) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBox("tytuł", post.tytuł) %>
+                <%: Html.TextBox("Tytuł", post.tytuł) %>
                 <%: Html.ValidationMessageFor(model => model.tytuł) %>
             </div>
             
@@ -28,12 +26,12 @@
                 <%: Html.LabelFor(model => model.treść) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBox("treść", post.treść) %>
+                <%: Html.TextBox("Treść", post.treść) %>
                 <%: Html.ValidationMessageFor(model => model.treść) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.status) %>
+               <%: Html.Label("Status posta (0 - niewidoczny (domyślnie), 1 - widoczny)") %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBox("status", post.status) %>
@@ -41,7 +39,7 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.data_dodania) %>
+                <%: Html.Label("Data dodania") %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBox("data_dodania", String.Format("{0:g}", post.data_dodania)) %>
@@ -49,22 +47,25 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.data_modyfikacji) %>
+                <%: Html.Label("Data modyfikacji")%>
             </div>
             <div class="editor-field">
                 <%: Html.TextBox("data_modyfikacji", String.Format("{0:g}", post.data_modyfikacji)) %>
                 <%: Html.ValidationMessageFor(model => model.data_modyfikacji) %>
             </div>
             <%: Html.Hidden("id", post.id) %>
+            <div class="editor-label">
+            <%: ViewData["AkcjaEdycji"] %>
+            </div>
             <p>
-                <input type="submit" value="Save" />
+                <input type="submit" value="Zapisz zmiany" />
             </p>
         </fieldset>
 
     <% } %>
 
     <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
+        <%: Html.ActionLink("Powrót do listy wpisów", "../Home/Index") %>
     </div>
 
 </asp:Content>

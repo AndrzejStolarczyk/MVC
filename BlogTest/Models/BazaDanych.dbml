@@ -2,7 +2,7 @@
   <Connection Mode="WebSettings" ConnectionString="Data Source=ANDREW-LAPTOP;Initial Catalog=ProjektHostingGrafiki;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ProjektHostingGrafikiConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Komentarze" Member="Komentarzes">
     <Type Name="Komentarze">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="id_postu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="treść" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
       <Column Name="autor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
@@ -32,6 +32,7 @@
   </Table>
   <Table Name="dbo.Tagi" Member="Tagis">
     <Type Name="Tagi">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="id_postu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="keywords" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="[desc]" Member="desc" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />

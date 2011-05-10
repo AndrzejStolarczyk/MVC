@@ -16,6 +16,7 @@ namespace BlogTest.Models
                 Post post = db.Posts.Single(p => p.id == new_post.id);
                 post.tytuł = new_post.tytuł;
                 post.treść = new_post.treść;
+                post.status = new_post.status;
                 post.data_modyfikacji = DateTime.Now;
 
                 db.SubmitChanges();
@@ -36,7 +37,8 @@ namespace BlogTest.Models
             {
                 Post post = new Post();
                 post.data_dodania = p.data_dodania;
-                post.data_modyfikacji = p.data_modyfikacji;
+                
+                //post.data_modyfikacji = p.data_modyfikacji;
                 post.status = 0;
                 post.treść = p.treść;
                 post.tytuł = p.tytuł;

@@ -15,16 +15,8 @@
         <%: Html.ValidationSummary(true) %>
 
         <fieldset>
-            <legend>Fields</legend>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.id) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.id) %>
-                <%: Html.ValidationMessageFor(model => model.id) %>
-            </div>
-            
+            <legend>Dodawanie nowego wpisu</legend>
+                        
             <div class="editor-label">
                 <%: Html.Label("Tytuł posta") %>
             </div>
@@ -34,7 +26,7 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.treść) %>
+                <%: Html.Label("Treść posta") %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.treść) %>
@@ -42,7 +34,7 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.status) %>
+                <%: Html.Label("Status posta (0 niewidoczny, 1 widoczny)") %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.status) %>
@@ -50,23 +42,15 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.data_dodania) %>
+                <%: Html.Label("Data dodania") %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.data_dodania) %>
                 <%: Html.ValidationMessageFor(model => model.data_dodania) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.data_modyfikacji) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.data_modyfikacji) %>
-                <%: Html.ValidationMessageFor(model => model.data_modyfikacji) %>
-            </div>
+            </div>          
 
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.description) %>
+                <%: Html.Label("Opis")%>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.description) %>
@@ -74,22 +58,24 @@
             </div>
 
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.keywords) %>
+                <%: Html.Label("Słowa kluczowe") %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.keywords) %>
                 <%: Html.ValidationMessageFor(model => model.keywords) %>
             </div>
-            
+            <div class="editor-label">
+            <%: ViewData["AkcjaDodania"]%>
+            </div> 
             <p>
-                <input type="submit" value="Create" />
+                <input type="submit" value="Dodaj wpis" />
             </p>
         </fieldset>
 
     <% } %>
 
     <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
+        <%: Html.ActionLink("Powrót do listy wpisów", "Index") %>
     </div>
 
 </asp:Content>
