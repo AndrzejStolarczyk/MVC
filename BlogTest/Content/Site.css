@@ -3,7 +3,7 @@ The base color for this template is #5c87b2. If you'd like
 to use a different color start by replacing all instances of
 #5c87b2 with your new color.
 ----------------------------------------------------------*/
-/*body
+body
 {
     background-color: #5c87b2;
     font-size: .75em;
@@ -37,10 +37,10 @@ p, ul
     margin-bottom: 20px;
     line-height: 1.6em;
 }
-*/
+
 /* HEADINGS   
 ----------------------------------------------------------*/
-/*h1, h2, h3, h4, h5, h6
+h1, h2, h3, h4, h5, h6
 {
     font-size: 1.5em;
     color: #000;
@@ -69,20 +69,20 @@ h5, h6
 {
     font-size: 1em;
 }
-*/
+
 /* this rule styles <h2> tags that are the 
 first child of the left and right table columns */
-/*.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
 {
     margin-top: 0;
-}*/
+}
 
 /* PRIMARY LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
 
 /* you can specify a greater or lesser percentage for the 
 page width. Or, you can specify an exact pixel width. */
-/*.page
+.page
 {
     width: 90%;
     margin-left: auto;
@@ -114,7 +114,7 @@ page width. Or, you can specify an exact pixel width. */
     padding: 30px 30px 15px 30px;
     background-color: #fff;
     margin-bottom: 30px;
-    _height: 1px; *//* only IE6 applies CSS properties starting with an underscore *//*
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
 }
 
 #footer
@@ -126,10 +126,10 @@ page width. Or, you can specify an exact pixel width. */
     margin: 0;
     font-size: .9em;
 }
-*/
+
 /* TAB MENU   
 ----------------------------------------------------------*/
-/*ul#menu
+ul#menu
 {
     border-bottom: 1px #5C87B2 solid;
     padding: 0 0 2px;
@@ -180,10 +180,10 @@ ul#menu li.selected a
     background-color: #fff;
     color: #000;
 }
-*/
+
 /* FORM LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
-/*
+
 fieldset 
 {
     margin: 1em 0;
@@ -214,10 +214,10 @@ input[type="password"]
     width: 200px;
     border: 1px solid #CCC;
 }
-*/
+
 /* TABLE
 ----------------------------------------------------------*/
-/*
+
 table 
 {
   border: solid 1px #e8eef4;
@@ -237,10 +237,10 @@ table th
   background-color: #e8eef4; 
   border: solid 1px #e8eef4;   
 }
-/*
+
 /* MISC  
 ----------------------------------------------------------*/
-/*.clear
+.clear
 {
     clear: both;
 }
@@ -288,10 +288,10 @@ div#title
     color: white;
     text-decoration: none;
 }
-/*
+
 /* Styles for validation helpers
 -----------------------------------------------------------*/
-/*.field-validation-error
+.field-validation-error
 {
     color: #ff0000;
 }
@@ -317,10 +317,10 @@ div#title
 {
     display: none;
 }
-/*
+
 /* Styles for editor and display helpers
 ----------------------------------------------------------*/
-/*.display-label,
+.display-label,
 .editor-label,
 .display-field,
 .editor-field

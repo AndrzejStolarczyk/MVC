@@ -6,12 +6,19 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: ViewData["Message"] %></h2>
-    <p>
-    <%foreach (Post item in (IEnumerable<Post>)ViewData["lista"])
+    <h2><%: ViewData["Msg"] %></h2>
+    <div class="lista_postów">
+    <%foreach (Post item in (IEnumerable<Post>)ViewData["ListaPostów"])
       {%>
-          <%=item.tytuł%> <br />
+           <%=item.tytuł%> (<%=item.data_dodania.ToShortDateString() %>)
+           <div class="treść_posta">
+           <%=item.treść %> 
+           </div>
+           <div class="komentarze_box">
+           Komentarze (2)
+           </div>
+           <br />
       <%} %>
         
-     </p>
+     </div>
 </asp:Content>

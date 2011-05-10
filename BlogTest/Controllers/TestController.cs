@@ -7,22 +7,15 @@ using BlogTest.Models;
 namespace BlogTest.Controllers
 {
     [HandleError]
-    public class HomeController : Controller
+    public class TestController : Controller
     {
         HomeRepository db = new HomeRepository();
 
-        public ActionResult Index()
+        public ActionResult Data(string tytuł, DateTime data)
         {
-            ViewData["Msg"] = "Welcome to ASP.NET MVC!";
-
-
-            ViewData["ListaPostów"] = db.get_post();
+            ViewData["posty"] = db.PostFromData(data, tytuł);
             return View();
         }
 
-        public ActionResult About()
-        {
-            return View();
-        }
     }
 }

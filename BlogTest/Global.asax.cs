@@ -16,6 +16,10 @@ namespace BlogTest
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("Data",
+                "{controller}/{action}/{id}",
+                new { controler = "Test", action = "Data", id = UrlParameter.Optional });
+
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
