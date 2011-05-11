@@ -9,7 +9,25 @@ namespace BlogTest.Models
     {
         BazaDanychDataContext db = new BazaDanychDataContext();
 
-        public bool zapisz_zmiany(Post new_post) 
+        public List<Post> ListaPostów()
+        {
+            return db.Posts.Select(a => a).ToList();
+        }
+
+        public bool Usuń(int ID)
+        {
+            try
+            {
+                db.Tagis.DeleteOnSubmit(db.Tagis.Single(a => a.id_postu == ID));
+                db.Posts.DeleteOnSubmit(db.Posts.Single(a => a.id == ID));
+                
+                db.SubmitChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+
+        public bool Zapisz(Post new_post) 
         {
             try
             {
@@ -26,17 +44,24 @@ namespace BlogTest.Models
             catch { return false; }
         }
 
-        public Post edytuj(int id) 
+        public Post Edytuj(int id) 
         {
             return db.Posts.Single(a => a.id == id);
         }
 
-        public bool insert_post(Pomocnicza p)
+        public bool Dodaj(Pomocnicza p)
         {
             try
             {
                 Post post = new Post();
-                post.data_dodania = p.data_dodania;
+                if (p.data_dodania == Convert.ToDateTime("0001-01-01 00:00:00"))
+                {
+                    post.data_dodania = DateTime.Now;
+                    p.data_dodania = post.data_dodania;
+                }
+
+                else
+                    post.data_dodania = p.data_dodania;
                 
                 //post.data_modyfikacji = p.data_modyfikacji;
                 post.status = 0;

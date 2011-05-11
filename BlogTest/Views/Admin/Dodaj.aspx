@@ -22,7 +22,7 @@
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.tytuł) %>
-                <%: Html.ValidationMessageFor(model => model.tytuł) %>
+                <%: Html.ValidationMessage("Musisz podać tytuł posta") %>
             </div>
             
             <div class="editor-label">
@@ -30,7 +30,7 @@
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.treść) %>
-                <%: Html.ValidationMessageFor(model => model.treść) %>
+                <%: Html.ValidationMessage("Musisz podać treść postu.") %>
             </div>
             
             <div class="editor-label">
@@ -38,15 +38,14 @@
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.status) %>
-                <%: Html.ValidationMessageFor(model => model.status) %>
+                <%: Html.ValidationMessage("Musisz wybrać status!") %>
             </div>
             
             <div class="editor-label">
                 <%: Html.Label("Data dodania") %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.data_dodania) %>
-                <%: Html.ValidationMessageFor(model => model.data_dodania) %>
+                <%: Html.TextBoxFor(model => model.data_dodania) %>               
             </div>          
 
             <div class="editor-label">
@@ -54,7 +53,7 @@
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.description) %>
-                <%: Html.ValidationMessageFor(model => model.description) %>
+                <%: Html.ValidationMessage("Musisz podać opis postu")%>
             </div>
 
             <div class="editor-label">
@@ -62,14 +61,14 @@
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.keywords) %>
-                <%: Html.ValidationMessageFor(model => model.keywords) %>
+                <%: Html.ValidationMessage("Musisz podać słowa kluczowe") %>
             </div>
             <div class="editor-label">
             <%: ViewData["AkcjaDodania"]%>
             </div> 
-            <p>
-                <input type="submit" value="Dodaj wpis" />
-            </p>
+            <br />
+            <input type="submit" value="Dodaj wpis" />
+            
         </fieldset>
 
     <% } %>

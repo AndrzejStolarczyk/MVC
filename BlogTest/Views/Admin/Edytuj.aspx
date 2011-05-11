@@ -65,7 +65,7 @@
     <% } %>
 
     <div>
-        <%: Html.ActionLink("Powrót do listy wpisów", "../Home/Index") %>
+        <%: Html.ActionLink("Powrót do listy wpisów", "../Admin/Index") %>
     </div>
 
 </asp:Content>

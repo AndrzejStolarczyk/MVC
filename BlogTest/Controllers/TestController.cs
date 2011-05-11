@@ -11,6 +11,7 @@ namespace BlogTest.Controllers
     {
         HomeRepository db = new HomeRepository();
 
+
         public ActionResult Data(string tytuł, DateTime data)
         {
             ViewData["posty"] = db.PostFromData(data, tytuł);

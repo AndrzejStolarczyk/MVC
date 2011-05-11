@@ -13,6 +13,7 @@ namespace BlogTest.Controllers
 
         public ActionResult Index()
         {
+            ViewData["ListaPostów"] = db_admin.ListaPostów();
             return View();
         }
 
@@ -21,10 +22,23 @@ namespace BlogTest.Controllers
             return View();
         }
 
+        public ActionResult Usuń(int ID) 
+        {
+            if (db_admin.Usuń(ID))
+            {
+                ViewData["AkcjaUsuwania"] = "Post usunięty pomyślnie";
+            }
+            else 
+            {
+                ViewData["AkcjaUsuwania"] = "Wystąpił błąd podczas usuwania posta";
+            }
+            return View();
+        }
+        
         [HttpPost]
         public ActionResult Dodaj(Pomocnicza p)
         {
-            if (db_admin.insert_post(p))
+            if (db_admin.Dodaj(p))
             {
                 ViewData["AkcjaDodania"] = "Pomyślnie dodano posta.";
             }
@@ -37,7 +51,8 @@ namespace BlogTest.Controllers
 
         public ActionResult Edytuj(int id)
         {
-            ViewData["post"] = db_admin.edytuj(id);
+            ViewData["post"] = db_admin.Edytuj(id);
+            
             return View(); 
         }
 
@@ -45,7 +60,7 @@ namespace BlogTest.Controllers
         public ActionResult Edytuj(Post post) 
         {
             ViewData["post"] = post;
-            if (db_admin.zapisz_zmiany(post))
+            if (db_admin.Zapisz(post))
             {
                 ViewData["AkcjaEdycji"] = "Zmiany zostały pomyślnie zapisane.";
             }

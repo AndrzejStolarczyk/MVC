@@ -21,7 +21,7 @@ namespace BlogTest.Models
         public String description { get; set; }
     }
 
-    [Bind(Exclude = "id, status")]
+    [Bind(Exclude = "id, status, data_dodania")]
     public class PostObiektValidate
     {
         [Required(ErrorMessage = "Pole wymagane")]

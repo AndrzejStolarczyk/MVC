@@ -110,6 +110,8 @@
     <Content Include="Global.asax" />
     <Content Include="Views\Admin\Dodaj.aspx" />
     <Content Include="Views\Admin\Edytuj.aspx" />
+    <Content Include="Views\Admin\Index.aspx" />
+    <Content Include="Views\Admin\Usuń.aspx" />
     <Content Include="Views\Test\Data.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
