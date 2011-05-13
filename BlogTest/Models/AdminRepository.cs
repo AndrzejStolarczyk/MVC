@@ -64,7 +64,8 @@ namespace BlogTest.Models
                     post.data_dodania = p.data_dodania;
                 
                 //post.data_modyfikacji = p.data_modyfikacji;
-                post.status = 0;
+
+                post.status = Convert.ToInt16(p.status);
                 post.treść = p.treść;
                 post.tytuł = p.tytuł;
 

@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<% BlogTest.Models.Post post = (BlogTest.Models.Post)ViewData["post"]; %>
+<% BlogTest.Models.Pomocnicza post = (BlogTest.Models.Post)ViewData["post"]; %>
     <h2>Edytuj</h2>
 
     <% using (Html.BeginForm()) {%>
@@ -31,11 +31,11 @@
             </div>
             
             <div class="editor-label">
-               <%: Html.Label("Status posta (0 - niewidoczny (domyślnie), 1 - widoczny)") %>
+               <%: Html.Label("Status posta") %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBox("status", post.status) %>
-                <%: Html.ValidationMessageFor(model => model.status) %>
+                <%: Html.CheckBox("status", post.status) %>
+                <%: Html.Label("Widoczny") %>
             </div>
             
             <div class="editor-label">
@@ -54,12 +54,14 @@
                 <%: Html.ValidationMessageFor(model => model.data_modyfikacji) %>
             </div>
             <%: Html.Hidden("id", post.id) %>
-            <div class="editor-label">
-            <%: ViewData["AkcjaEdycji"] %>
-            </div>
+            
             <p>
                 <input type="submit" value="Zapisz zmiany" />
             </p>
+
+            <div class="editor-label">
+            <%: ViewData["AkcjaEdycji"] %>
+            </div>
         </fieldset>
 
     <% } %>

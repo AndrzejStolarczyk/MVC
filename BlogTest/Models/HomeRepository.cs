@@ -9,13 +9,44 @@ namespace BlogTest.Models
     {
         BazaDanychDataContext db = new BazaDanychDataContext();
 
-        public IEnumerable<Post> get_post()
+        public IEnumerable<Post> PobierzPosty()
         {            
             return (from p in db.Posts
                     where p.status == 1
                     orderby p.data_dodania descending
                     select p).ToList<Post>();
         }
+
+        public Post PobierzPost(int ID) 
+        {
+            return db.Posts.Single(a => a.id == ID);
+        }
+
+        public List<Komentarze> PobierzKomentarzeDoPostu(int ID) 
+        {
+            return (from k in db.Komentarzes
+                    where k.id_postu == ID
+                    orderby k.data_dodania descending
+                    select k).ToList<Komentarze>();
+        }
+
+        public int LiczbaKomentarzyDoPostu(int ID)
+        {
+            return db.Komentarzes.Where(a => a.id_postu == ID).Count();
+        }
+
+        public bool DodajKomentarz(Komentarze k) 
+        {
+            try
+            {
+                db.Komentarzes.InsertOnSubmit(k);
+                db.SubmitChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+
+
 
         public Post PostFromData(DateTime data, string tytuł) 
         {

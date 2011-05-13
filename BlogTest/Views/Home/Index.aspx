@@ -15,10 +15,9 @@
            <%=item.treść %> 
            </div>
            <div class="komentarze_box">
-           Komentarze (2)
+           Komentarze (<%= ViewData["Post" + item.id] %>)
            </div>
            <br />
       <%} %>
-        
      </div>
 </asp:Content>

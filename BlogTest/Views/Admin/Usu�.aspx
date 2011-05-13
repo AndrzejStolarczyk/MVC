@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Usuń</h2>
+    <h2>Usuwanie posta</h2>
 
     <h3><%: ViewData["AkcjaUsuwania"] %></h3>
     |

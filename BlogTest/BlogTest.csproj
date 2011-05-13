@@ -112,6 +112,7 @@
     <Content Include="Views\Admin\Edytuj.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Admin\Usuń.aspx" />
+    <Content Include="Views\Home\Wpis.aspx" />
     <Content Include="Views\Test\Data.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

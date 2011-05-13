@@ -38,6 +38,13 @@ namespace BlogTest.Controllers
         [HttpPost]
         public ActionResult Dodaj(Pomocnicza p)
         {
+            var checkBox = Request.Form["status"];
+
+            if (checkBox == "false")
+                p.status = false;
+            else
+                p.status = true;
+
             if (db_admin.Dodaj(p))
             {
                 ViewData["AkcjaDodania"] = "Pomyślnie dodano posta.";
@@ -49,9 +56,9 @@ namespace BlogTest.Controllers
             return View(p);
         }
 
-        public ActionResult Edytuj(int id)
+        public ActionResult Edytuj(int ID)
         {
-            ViewData["post"] = db_admin.Edytuj(id);
+            ViewData["post"] = db_admin.Edytuj(ID);
             
             return View(); 
         }
@@ -59,6 +66,12 @@ namespace BlogTest.Controllers
         [HttpPost]
         public ActionResult Edytuj(Post post) 
         {
+            var checkBox = Request.Form["status"];
+            if (checkBox == "false")
+                post.status = 0;
+            else
+                post.status = 1;
+
             ViewData["post"] = post;
             if (db_admin.Zapisz(post))
             {
@@ -71,9 +84,5 @@ namespace BlogTest.Controllers
             }
             return View();
         }
-
-       
-
-
     }
 }

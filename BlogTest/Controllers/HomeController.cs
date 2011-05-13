@@ -15,10 +15,27 @@ namespace BlogTest.Controllers
         {
             ViewData["Msg"] = "Welcome to ASP.NET MVC!";
 
+            List<Post> p = (List<Post>) db.PobierzPosty();
 
-            ViewData["ListaPostów"] = db.get_post();
+            ViewData["ListaPostów"] = p;
+
+            foreach (Post post in p)
+            {
+                int suma = db.LiczbaKomentarzyDoPostu(post.id);
+                ViewData["Post" + post.id] = suma;
+            }
+
             return View();
         }
+
+        public ActionResult Wpis(int ID) 
+        {
+            ViewData["Post"] = db.PobierzPost(ID);
+            ViewData["Komentarze"] = db.PobierzKomentarzeDoPostu(ID);
+            return View();
+        }
+
+        
 
         public ActionResult About()
         {

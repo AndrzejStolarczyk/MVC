@@ -13,7 +13,7 @@
     <% Html.EnableClientValidation(); %>
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
-
+    
         <fieldset>
             <legend>Dodawanie nowego wpisu</legend>
                         
@@ -29,15 +29,18 @@
                 <%: Html.Label("Treść posta") %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.treść) %>
+                <%: Html.TextBoxFor(model => model.treść)%>
                 <%: Html.ValidationMessage("Musisz podać treść postu.") %>
             </div>
             
             <div class="editor-label">
-                <%: Html.Label("Status posta (0 niewidoczny, 1 widoczny)") %>
+                <%: Html.Label("Status posta") %>
             </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.status) %>
+            
+           
+            <div class="editor-field"> 
+                <%: Html.CheckBoxFor(model => model.status) %>
+                <%: Html.Label("Widoczny") %>
                 <%: Html.ValidationMessage("Musisz wybrać status!") %>
             </div>
             
@@ -63,12 +66,11 @@
                 <%: Html.TextBoxFor(model => model.keywords) %>
                 <%: Html.ValidationMessage("Musisz podać słowa kluczowe") %>
             </div>
-            <div class="editor-label">
-            <%: ViewData["AkcjaDodania"]%>
-            </div> 
             <br />
             <input type="submit" value="Dodaj wpis" />
-            
+             <div class="editor-label">
+            <%: ViewData["AkcjaDodania"]%>
+            </div>            
         </fieldset>
 
     <% } %>

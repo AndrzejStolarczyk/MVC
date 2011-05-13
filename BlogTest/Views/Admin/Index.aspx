@@ -17,7 +17,7 @@
        { %>
     
         <tr>
-            <td>
+            <td>                        
                 <%=item.tytuł %>
                 <%: Html.ActionLink("Edytuj", "Edytuj/" + item.id, new {/*  id=item.id */}) %> |
                 <%: Html.ActionLink("Szczegóły", "../Home/Wpis/" + item.id, new { /* id=item.PrimaryKey */ })%> |
@@ -30,7 +30,7 @@
     </table>
 
     <p>
-        <%: Html.ActionLink("Create New", "Create") %>
+        <%: Html.ActionLink("Dodaj nowy post", "../Admin/Dodaj") %>
     </p>
 
 </asp:Content>
