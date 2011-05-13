@@ -20,6 +20,16 @@ namespace BlogTest.Models
             {
                 db.Tagis.DeleteOnSubmit(db.Tagis.Single(a => a.id_postu == ID));
                 db.Posts.DeleteOnSubmit(db.Posts.Single(a => a.id == ID));
+
+                var komentarze = from kom in db.Komentarzes
+                                 where kom.id_postu == ID
+                                 select kom;
+                
+                foreach (Komentarze k in komentarze) 
+                {
+                    db.Komentarzes.DeleteOnSubmit(k);
+                }
+                
                 
                 db.SubmitChanges();
                 return true;

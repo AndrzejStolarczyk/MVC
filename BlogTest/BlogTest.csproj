@@ -90,6 +90,7 @@
     <Content Include="App_Data\Baziutka_log.ldf">
       <DependentUpon>Baziutka.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\ProjektHostingGrafiki.mdf" />
     <Content Include="Content\images\blog_03-03.gif" />
     <Content Include="Content\images\blog_03-08.gif" />
     <Content Include="Content\images\blog_03-16.gif" />

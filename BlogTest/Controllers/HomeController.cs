@@ -13,7 +13,7 @@ namespace BlogTest.Controllers
 
         public ActionResult Index()
         {
-            ViewData["Msg"] = "Welcome to ASP.NET MVC!";
+            ViewData["Msg"] = "Blog Testowy w MVC2";
 
             List<Post> p = (List<Post>) db.PobierzPosty();
 
@@ -24,6 +24,28 @@ namespace BlogTest.Controllers
                 int suma = db.LiczbaKomentarzyDoPostu(post.id);
                 ViewData["Post" + post.id] = suma;
             }
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Wpis(Post p)
+        {
+            ViewData["Post"] = db.PobierzPost(p.id);
+            if (db.DodajKomentarz(new Komentarze()
+            {
+                autor = Request.Form["Autor"],
+                treść = Request.Form["Komentarz"],
+                data_dodania = DateTime.Now,
+                id_postu = p.id,
+                status = 1
+            }))
+            {
+                ViewData["AkcjaDodaniaKomentarza"] = "Komentarz dodany poprawnie";
+            }
+            else ViewData["AkcjaDodaniaKomentarza"] = "Wystąpił błąd w trakcie dodawania komentarza";
+
+            ViewData["Komentarze"] = db.PobierzKomentarzeDoPostu(p.id);
 
             return View();
         }

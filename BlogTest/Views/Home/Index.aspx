@@ -10,12 +10,14 @@
     <div class="lista_postów">
     <%foreach (Post item in (IEnumerable<Post>)ViewData["ListaPostów"])
       {%>
-           <%=item.tytuł%> (<%=item.data_dodania.ToShortDateString() %>)
+           <%: Html.ActionLink(item.tytuł + " (" + item.data_dodania.ToShortDateString() + ")", "../Home/Wpis/" + item.id) %>
            <div class="treść_posta">
            <%=item.treść %> 
            </div>
            <div class="komentarze_box">
-           Komentarze (<%= ViewData["Post" + item.id] %>)
+            <%: Html.ActionLink("Komentarze (" + ViewData["Post" + item.id] + ")", "../Home/Wpis/" + item.id) %>
+           </div>
+           <div class="opis">
            </div>
            <br />
       <%} %>
