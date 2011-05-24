@@ -1,0 +1,7 @@
+[merge]
+	tool = kdiff3
+[user]
+	name = qrko
+	email = qrko@gmail.com
+[core]
+	autocrlf = true

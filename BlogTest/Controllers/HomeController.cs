@@ -28,6 +28,40 @@ namespace BlogTest.Controllers
             return View();
         }
 
+        public ActionResult IndexjQuery()
+        {
+            ViewData["Msg"] = "Blog Testowy w MVC2";
+
+            List<Post> p = (List<Post>)db.PobierzPosty();
+
+            ViewData["ListaPostów"] = p;
+
+            foreach (Post post in p)
+            {
+                int suma = db.LiczbaKomentarzyDoPostu(post.id);
+                ViewData["Post" + post.id] = suma;
+            }
+
+            return View();
+        }
+
+        public ActionResult IndexTab()
+        {
+            ViewData["Msg"] = "Blog Testowy w MVC2";
+
+            List<Post> p = (List<Post>)db.PobierzPosty();
+
+            ViewData["ListaPostów"] = p;
+
+            foreach (Post post in p)
+            {
+                int suma = db.LiczbaKomentarzyDoPostu(post.id);
+                ViewData["Post" + post.id] = suma;
+            }
+
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Wpis(Post p)
         {

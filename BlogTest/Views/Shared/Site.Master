@@ -1,56 +1,67 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+<head id="Head1" runat="server">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>bloG</title>
+<link href="../../Content/blog.css" rel="stylesheet" type="text/css" />
+    <link href="../../Scripts/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <link href="../../Scripts/themes/base/jquery.ui.dialog.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
+    <script src="../../Scripts/ui/jquery.ui.core.js" type="text/javascript"></script>
+    <script src="../../Scripts/ui/jquery.ui.position.js" type="text/javascript"></script>
+    <script src="../../Scripts/ui/jquery.ui.widget.js" type="text/javascript"></script>
+    <script src="../../Scripts/ui/jquery.ui.dialog.js" type="text/javascript"></script>
+       <script>
+           // increase the default animation speed to exaggerate the effect
+           $.fx.speeds._default = 1000;
+           $(function () {
+               $("#dialog").dialog({
+                   autoOpen: false,
+                   show: "blind",
+                   hide: "explode"
+               });
+
+               $("#opener").click(function () {
+                   $("#dialog").dialog("open");
+                   return false;
+               });
+           });
+	</script>
+
+
 </head>
 
 <body>
-    <div id="all">
-        <%--<div id="top">
-            <div id="lefttop" style="background-image: url('/Content/images/blog_03.gif')">
-            </div>
-            <div id="centertop">
-                <div id="metop" style="background-image: url('/Content/images/blog_cięcie_02.gif')"></div>
-                <div id="bartop" 
-                    style="background-image: url('/Content/images/blog_03-03.gif');"></div>
-                <div id="bar2top"
-                    style="background-image: url('/Content/images/blog_cięcie_05.gif');"></div>
-                <div id="logintop"
-                    style="background-image: url('/Content/images/blog_cięcie_06.gif');"></div>
-                <div id="bar3top"
-                    style="background-image: url('/Content/images/blog_cięcie_07.gif');"></div>
-                <div id="texttop"
-                    style="background-image: url('/Content/images/blog_03-08.gif');"></div>
-                <div id="bar4top"
-                    style="background-image: url('/Content/images/blog_cięcie_09.gif');"></div>
-                <div id="hometop"
-                    style="background-image: url('/Content/images/blog_cięcie_10.gif');"></div>
-                <div id="bar5top"
-                    style="background-image: url('/Content/images/blog_cięcie_11.gif');"></div>
-                <div id="archivetop"
-                    style="background-image: url('/Content/images/blog_cięcie_12.gif');"></div>
-                <div id="bar6top"
-                    style="background-image: url('/Content/images/blog_cięcie_13.gif');"></div>
-                <div id="contacttop"
-                    style="background-image: url('/Content/images/blog_cięcie_14.gif');"></div>
-                <div id="bar7top"
-                    style="background-image: url('/Content/images/blog_cięcie_15.gif');"></div>
-                <div id="bar8top"
-                    style="background-image: url('/Content/images/blog_03-16.gif');"></div>
-            </div>
-            <div id="righttop" style="background-image: url('/Content/images/blog_04.gif')">
-            </div>
-        </div>--%>
-                            <!--<div id="logindisplay">
-                                <% Html.RenderPartial("LogOnUserControl"); %>
-                            </div> -->
+<div id="dialog" title="O twórcach">
+	<p>Made by Arek M. and Andrzej S.</p>
+</div>
+<div class="page_container">
+	<div class="logo_top"></div>
+    <div class="logo_left"></div>
+    <div class="button_1"><a href="/Home/" class="lnkbutton1">&nbsp;</a></div>
+    <div class="button_2"><a href="/Admin/" class="lnkbutton2">&nbsp;</a></div>
 
-                        <div id="main">
-                            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-                        </div>
+    <div class="logo_right"></div>
+    <div class="logo_down"></div>
+    <div class="menu">
+        <asp:ContentPlaceHolder ID="Menu" runat="server"></asp:ContentPlaceHolder><br />
+        jQuery: <br />
+        <a id="opener" href="#" style="color: Green" >O twórcach (Dialog)</a> <br />
+        <a href="/Home/IndexjQuery" style="color: Green">Index (Accordion)</a><br />
+        <a href="/Home/IndexTab" style="color: Green">Index (Tabs)</a><br />
     </div>
+    <div class="content">
+        <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+    </div>
+    <div class="clear_both"></div>
+    <div class="bottom"></div>
+	
+
+
+</div>
+
 </body>
 </html>

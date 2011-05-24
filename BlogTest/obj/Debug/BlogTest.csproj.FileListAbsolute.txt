@@ -8,3 +8,13 @@ Z:\Projekty Visual Studio\BlogTest\BlogTest\bin\BlogTest.pdb
 Z:\Projekty Visual Studio\BlogTest\BlogTest\obj\Debug\ResolveAssemblyReference.cache
 Z:\Projekty Visual Studio\BlogTest\BlogTest\obj\Debug\BlogTest.dll
 Z:\Projekty Visual Studio\BlogTest\BlogTest\obj\Debug\BlogTest.pdb
+C:\Documents and Settings\Administrator\git\projektgrafika\MVC\BlogTest\bin\BlogTest.dll
+C:\Documents and Settings\Administrator\git\projektgrafika\MVC\BlogTest\bin\BlogTest.pdb
+C:\Documents and Settings\Administrator\git\projektgrafika\MVC\BlogTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\git\projektgrafika\MVC\BlogTest\obj\Debug\BlogTest.dll
+C:\Documents and Settings\Administrator\git\projektgrafika\MVC\BlogTest\obj\Debug\BlogTest.pdb
+C:\Documents and Settings\Administrator\git\BlogTest\bin\BlogTest.dll
+C:\Documents and Settings\Administrator\git\BlogTest\bin\BlogTest.pdb
+C:\Documents and Settings\Administrator\git\BlogTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\git\BlogTest\obj\Debug\BlogTest.dll
+C:\Documents and Settings\Administrator\git\BlogTest\obj\Debug\BlogTest.pdb

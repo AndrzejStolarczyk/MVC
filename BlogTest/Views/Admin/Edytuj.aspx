@@ -1,55 +1,53 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<BlogTest.Models.Post>" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+<asp:Content ID="Menu" ContentPlaceHolderID="Menu" runat="server">
 	Edytuj
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content" ContentPlaceHolderID="Content" runat="server">
+<div class="content">
 <% BlogTest.Models.Pomocnicza post = (BlogTest.Models.Post)ViewData["post"]; %>
-    <h2>Edytuj</h2>
+    
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
         
-        <fieldset>
-            <legend>Edycja posta  o ID = <%=post.id %></legend>
+            <h2>Edycja posta o ID <%=post.id %></h2>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.tytuł) %>
+                <%: Html.Label("Tytuł posta:") %>
             </div>
-            <div class="editor-field">
-                <%: Html.TextBox("Tytuł", post.tytuł) %>
+            <div class="editor-inne">
+                <%: Html.TextBox("Tytuł:", post.tytuł) %>
                 <%: Html.ValidationMessageFor(model => model.tytuł) %>
             </div>
-            
+            <br />
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.treść) %>
+                <%: Html.Label("Treść posta:") %>
             </div>
-            <div class="editor-field">
-                <%: Html.TextBox("Treść", post.treść) %>
+            <div class="editor-tresc">
+                <%: Html.TextArea("Treść:", post.treść, 9, 72, null) %>
                 <%: Html.ValidationMessageFor(model => model.treść) %>
             </div>
-            
+            <br />
             <div class="editor-label">
                <%: Html.Label("Status posta") %>
-            </div>
-            <div class="editor-field">
-                <%: Html.CheckBox("status", post.status) %>
+                <%: Html.CheckBox("Status: ", post.status) %>
                 <%: Html.Label("Widoczny") %>
             </div>
-            
+            <br />
             <div class="editor-label">
-                <%: Html.Label("Data dodania") %>
+                <%: Html.Label("Data dodania:") %>
             </div>
-            <div class="editor-field">
+            <div class="editor-inne">
                 <%: Html.TextBox("data_dodania", String.Format("{0:g}", post.data_dodania)) %>
                 <%: Html.ValidationMessageFor(model => model.data_dodania) %>
             </div>
-            
+            <br />
             <div class="editor-label">
-                <%: Html.Label("Data modyfikacji")%>
+                <%: Html.Label("Data modyfikacji:")%>
             </div>
-            <div class="editor-field">
+            <div class="editor-inne">
                 <%: Html.TextBox("data_modyfikacji", String.Format("{0:g}", post.data_modyfikacji)) %>
                 <%: Html.ValidationMessageFor(model => model.data_modyfikacji) %>
             </div>
@@ -62,13 +60,12 @@
             <div class="editor-label">
             <%: ViewData["AkcjaEdycji"] %>
             </div>
-        </fieldset>
 
     <% } %>
 
     <div>
         <%: Html.ActionLink("Powrót do listy wpisów", "../Admin/Index") %>
     </div>
-
+</div>
 </asp:Content>
 
